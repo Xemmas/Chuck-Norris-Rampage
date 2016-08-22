@@ -36,20 +36,3 @@ function playershoot() {
     bullets.push(bullet);
 }
 
-for (var i = 0; i < bullets.length; i++) {
-    for (var j = 0; j < bullets.length; j++) {
-        if (intersects(
-            bullets[j].x - bullets[j].width / 2,
-            bullets[j].y - bullets[j].height / 2,
-            bullets[j].width, bullets[j].height,
-            .x - asteroids[i].width / 2,
-            asteroids[i].y - asteroids[i].height / 2,
-            asteroids[i].width, asteroids[i].height) == true) {
-            asteroids.splice(i, 1);
-            bullets.splice(j, 1);
-            isDead = true
-        }
-
-    }
-
-}

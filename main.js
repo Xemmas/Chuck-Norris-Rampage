@@ -163,6 +163,7 @@ var keyboard = new keyboard();
 
 function run()
 {
+    
 	context.fillStyle = "#ccc";		
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	

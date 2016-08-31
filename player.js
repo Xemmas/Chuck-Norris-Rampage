@@ -125,6 +125,7 @@ Player.prototype.update = function (deltaTime)
             this.sprite.setAnimation(ANIM_JUMP_LEFT)
         else
             this.sprite.setAnimation(ANIM_JUMP_RIGHT)
+
     }
     // calculate the new position and velocity:
     this.position.y = Math.floor(this.position.y + (deltaTime * this.velocity.y));
@@ -194,4 +195,8 @@ Player.prototype.update = function (deltaTime)
             this.velocity.x = 0; // stop horizontal velocity
         }
     }
+}
+Player.prototype.draw = function () {
+    this.sprite.draw(context, this.position.x, this.position.y);
+
 }

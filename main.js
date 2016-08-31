@@ -67,7 +67,6 @@ function initialize() {
     }
 }
 
-initialize();
 var MAP = { tw: 60, th: 15 };
 var TILE = 35;
 var TILESET_TILE = TILE * 2;
@@ -162,8 +161,11 @@ var enemy = new Enemy();
 
 var keyboard = new keyboard();
 
+initialize();
+
 function run()
 {
+    Player()
 	context.fillStyle = "#ccc";		
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	
@@ -174,7 +176,7 @@ function run()
 	player.update(deltaTime);
 	player.draw();
 
-	enemy.update(deltaTime);
+
     enemy.draw()
 		
 	// update the frame counter 

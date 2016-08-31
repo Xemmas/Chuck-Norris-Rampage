@@ -148,6 +148,10 @@ function drawMap() {
     }
 }
 
+
+
+
+
 // load an image to draw
 var chuckNorris = document.createElement("img");
 chuckNorris.src = "hero.png";
@@ -193,6 +197,23 @@ function run()
 	context.fillStyle = "#f00";
 	context.font="14px Arial";
 	context.fillText("FPS: " + fps, 5, 20, 100);
+
+	var score = 0;
+
+    //score
+	context.fillStyle = "yellow";
+	context.font = "38px Corbel";
+	var scoreText = "score: " + score;
+	context.fillText(scoreText, 10, 330);
+
+	var heart = document.createElement("img");
+	heart.src = "heart.png";
+
+	var lives = 3;
+	for (var i = 0; i < lives; i++) {
+
+	    context.drawImage(heart, 5 + ((heart.width + 2) * i), 30);
+	}
 }
 
 //-------------------- Don't modify anything below here

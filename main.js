@@ -67,6 +67,7 @@ function initialize() {
     }
 }
 
+initialize();
 var MAP = { tw: 60, th: 15 };
 var TILE = 35;
 var TILESET_TILE = TILE * 2;
@@ -163,7 +164,6 @@ var keyboard = new keyboard();
 
 function run()
 {
-    
 	context.fillStyle = "#ccc";		
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	
@@ -192,8 +192,6 @@ function run()
 	context.font="14px Arial";
 	context.fillText("FPS: " + fps, 5, 20, 100);
 }
-
-
 
 //-------------------- Don't modify anything below here
 

@@ -2,7 +2,9 @@
 var Enemy = function (x, y)
 {
     this.image = document.createElement("img")
-    this.x = 350
+
+    this.position = new Vector2();
+    this.position.set(x, y);    this.x = 350
     this.y = -70
     this.width = 150;
     this.height = 150;
@@ -12,10 +14,16 @@ var Enemy = function (x, y)
 };
 
 
-Enemy.prototype.draw = function () {
-    context.save();
-    context.translate(this.x, this.y);
-    context.rotate(this.rotation);
-    
-    context.restore();
+// add enemies
+idx = 0;
+for (var y = 0; y < level1.layers[LAYER_OBJECT_ENEMIES].height; y++) {
+    for (var x = 0; x < level1.layers[LAYER_OBJECT_ENEMIES].width; x++) {
+        if (level1.layers[LAYER_OBJECT_ENEMIES].data[idx] != 0) {
+            var px = tileToPixel(x);
+            var py = tileToPixel(y);
+            var e = new Enemy(px, py);
+            enemies.push(e);
+        }
+        idx++;
+    }
 }

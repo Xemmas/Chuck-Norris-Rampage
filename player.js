@@ -111,7 +111,7 @@ Player.prototype.update = function (deltaTime)
             this.sprite.setAnimation(ANIM_WALK_RIGHT);
     }
 
-    if (keyboard.isKeyDown(keyboard.KEY_UP) == true) {
+    if (keyboard.isKeyDown(keyboard.KEY_SPACE) == true) {
         jump = true;
     }
 
@@ -119,7 +119,6 @@ Player.prototype.update = function (deltaTime)
         this.cooldownTimer -= deltaTime;
     }
     if (keyboard.isKeyDown(keyboard.KEY_SPACE) == true && this.cooldownTimer <= 0) {
-        sfxFire.play();
         this.cooldownTimer = 0.3;
         // Shoot a bullet
     }
@@ -215,6 +214,13 @@ Player.prototype.update = function (deltaTime)
             this.velocity.x = 0; // stop horizontal velocity
         }
     }
+
+    if (cellAtTileCoord(LAYER_OBJECT_TRIGGERS, tx, ty) == true) {
+        // game over splash screen
+        gameState = STATE_WONGAME;
+        return;
+    }
+
 }
 
 
